@@ -105,60 +105,60 @@ int main(void)
 	  if (result == HAL_OK) {
 		  switch (rcvBuf[0]) {
 
-		  	  case '1': // RED ON
+		  	  case '1':
 		  		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - RED ON\r\n", 11, 100);
+		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN ON\r\n", 13, 100);
 		  		  break;
-		  	  case '2': // RED OFF
+		  	  case '2':
 		  		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
-		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - RED OFF\r\n", 12, 100);
+		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN OFF\r\n", 14, 100);
 		  		  break;
 
-		  	  case '3': // GREEN ON
+		  	  case '3':
 		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN ON\r\n", 13, 100);
-		  		break;
-		  	  case '4': // GREEN OFF
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN OFF\r\n", 14, 100);
-		  		break;
-
-		  	  case '5': // ORANGE ON
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - ORANGE ON\r\n", 14, 100);
 		  		break;
-		  	  case '6': // ORANGE OFF
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+		  	  case '4':
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - ORANGE OFF\r\n", 15, 100);
 		  		break;
 
-		  	  case '7': // BLUE ON
+		  	  case '5':
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED ON\r\n", 11, 100);
+		  		break;
+		  	  case '6':
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED OFF\r\n", 12, 100);
+		  		break;
+
+		  	  case '7':
 		  		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET);
 		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - BLUE ON\r\n", 12, 100);
 		  		  break;
-		  	  case '8': // BLUE OFF
+		  	  case '8':
 		  		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
 		  		  HAL_UART_Transmit(&huart3, (uint8_t *)" - BLUE OFF\r\n", 13, 100);
 		  		  break;
 
-		  	  case '9': // ALL ON
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET); // RED ON
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED ON\r\n", 11, 100);
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET); // GREEN ON
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN ON\r\n", 13, 100);
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET); // ORANGE ON
+		  	  case '9':
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)"\n - GREEN ON\r\n", 14, 100);
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - ORANGE ON\r\n", 14, 100);
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET); // BLUE ON
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED ON\r\n", 11, 100);
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - BLUE ON\r\n", 12, 100);
 		  		break;
 
-		  	  case '0': // ALL OFF
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET); // RED OFF
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED OFF\r\n", 12, 100);
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET); // GREEN OFF
-		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - GREEN OFF\r\n", 14, 100);
-		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET); // ORANGE OFF
+		  	  case '0':
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)"\n - GREEN OFF\r\n", 15, 100);
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_RESET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - ORANGE OFF\r\n", 15, 100);
+		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - RED OFF\r\n", 12, 100);
 		  		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
 		  		HAL_UART_Transmit(&huart3, (uint8_t *)" - BLUE OFF\r\n", 13, 100);
 		  		break;
